@@ -1,0 +1,191 @@
+body {
+  background: #181818;
+  box-sizing: border-box;
+}
+
+/* GAME BOARD */
+.board {
+  width: 400px;
+  height: 400px;
+  background: none;
+  margin: 0 auto;
+  margin-top: 6rem;
+  box-shadow: 0 0 20px 2px #0ff;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 4px;
+}
+/* cells border */
+.cells {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cells:first-child,
+.cells:nth-child(2),
+.cells:nth-child(3) {
+  border-top: none;
+}
+
+.cells:nth-child(3n + 1) {
+  border-left: none;
+}
+.cells:nth-child(3n + 3) {
+  border-right: none;
+}
+
+.cells:last-child,
+.cells:nth-child(7),
+.cells:nth-child(8) {
+  border-bottom: none;
+}
+
+/* 
+TO DRAW X */
+.draw-x::after,
+.draw-x::before {
+  content: "";
+  width: 8px;
+  height: calc(400px / 3);
+  background: #0ff;
+  position: absolute;
+  box-shadow: 0 0 10px 0.5px #0ff;
+}
+
+.draw-x::after {
+  transform: rotate(45deg);
+}
+.draw-x::before {
+  transform: rotate(-45deg);
+}
+
+.draw-circle::after,
+.draw-circle::before {
+  content: "";
+  width: 85%;
+  height: 85%;
+  background: orange;
+  border-radius: 80px;
+  position: absolute;
+  box-shadow: 0 0 10px 0.5px orange;
+}
+.draw-circle::after {
+  background: #181818;
+  transform: scale(0.8);
+}
+
+.header {
+  margin: 0;
+  text-align: center;
+  position: relative;
+  top: 3rem;
+  font-size: 3rem;
+  color: #0ff;
+  text-shadow: 0 0 100px #0ff;
+}
+
+.colored {
+  color: orange;
+  text-shadow: 0 0 50px orange;
+}
+
+.reset {
+  display: block;
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  width: 6rem;
+  height: 2rem;
+  background: transparent;
+  color: orange;
+  text-shadow: 0 0 10px orange;
+  transition: all 0.3s;
+  text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid whitesmoke;
+  box-shadow: 0 0 5px 0.2px whitesmoke;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.reset span {
+  position: relative;
+  z-index: 2;
+}
+
+.reset:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgb(10, 174, 174);
+  transition: all 0.3s;
+}
+
+.reset:hover {
+  color: black;
+  text-shadow: none;
+}
+
+.reset:hover:after {
+  width: 100%;
+}
+
+.score {
+  position: absolute;
+  top: 12rem;
+  left: 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scores {
+  width: 20rem;
+  font-size: 4rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.score-x {
+  color: #0ff;
+}
+.score-circle {
+  color: orange;
+}
+
+footer {
+  font-style: italic;
+  margin-top: 50px;
+  margin-right: 20px;
+  color: orange;
+  float: right;
+}
+
+@media (max-width: 500px) {
+  .board {
+    margin-top: 8rem;
+    width: 99%;
+    height: 380px;
+  }
+  .header {
+    top: 5rem;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    margin-right: 0;
+    transform: scale(0.9);
+  }
+}
