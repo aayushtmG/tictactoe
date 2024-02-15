@@ -8,4 +8,4 @@ a simple tictactoe game with neon theme
 
 # Link to live site
 
-https://icetmzz.github.io/tictactoe/
+https://aayushtmg.github.io/tictactoe/
